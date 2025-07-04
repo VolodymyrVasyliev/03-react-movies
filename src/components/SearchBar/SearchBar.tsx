@@ -1,6 +1,5 @@
 import styles from "./SearchBar.module.css";
 
-// import axios from "axios";
 // import { useState } from "react";
 
 interface SearchFormProps {
