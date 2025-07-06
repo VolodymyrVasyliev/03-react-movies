@@ -6,14 +6,11 @@ interface SearchFormProps {
   onSearch: (saerchQuery: string) => void;
 }
 
-// const API_KEY = "yuor_key"
-
 export default function SearchBar({ onSearch }: SearchFormProps) {
+  
   const handleSubmit = (formData: FormData) => {
-
     const query = formData.get("query") as string;
-    console.log("handleSubmit", query);
-    
+
     onSearch(query);
   };
 
