@@ -1,6 +1,6 @@
 import styles from "./SearchBar.module.css";
+import toast from "react-hot-toast";
 
-// import { useState } from "react";
 
 interface SearchFormProps {
   onSearch: (saerchQuery: string) => void;
@@ -8,9 +8,19 @@ interface SearchFormProps {
 
 export default function SearchBar({ onSearch }: SearchFormProps) {
   
+
   const handleSubmit = (formData: FormData) => {
+
     const query = formData.get("query") as string;
 
+    if (!query.trim()) {
+      toast("Please enter your search query.", {
+        duration: 2000,
+        position: "top-center",
+      });
+
+      return;
+    }
     onSearch(query);
   };
 
@@ -19,7 +29,7 @@ export default function SearchBar({ onSearch }: SearchFormProps) {
       <header className={styles.header}>
          {" "}
         <div className={styles.container}>
-             {" "}
+               {" "}
           <a
             className={styles.link}
             href="https://www.themoviedb.org/"
@@ -45,7 +55,6 @@ export default function SearchBar({ onSearch }: SearchFormProps) {
             </button>
                
           </form>
-           
         </div>
       </header>
     </>

@@ -6,6 +6,7 @@
 }
 
 .container {
+    position: relative;
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
@@ -58,3 +59,39 @@
 .button:hover {
     background-color: #004182;
 }
+
+/* =================ERROR===================== */
+.error {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4444;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    animation: fadeInOut 3s ease forwards;
+    opacity: 0;
+    z-index: 10;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -10px);
+    }
+    10% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    90% {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -10px);
+    }
+  }
