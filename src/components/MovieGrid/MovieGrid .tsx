@@ -1,13 +1,13 @@
 import css from "./MovieGrid.module.css";
 import type { Movie } from "../../types/movie";
 
-interface MoviGridPropse {
+interface MovieGridPropse {
   movies: Movie[];
   onSelect: (movie: Movie) => void;
 }
 const posterBaseUrl = "https://image.tmdb.org/t/p/w500/";
 
-export default function MovieGrid({ onSelect,movies }: MoviGridPropse) {
+export default function MovieGrid({ onSelect,movies }: MovieGridPropse) {
   return (
     <ul className={css.grid}>
        {" "}
@@ -19,7 +19,7 @@ export default function MovieGrid({ onSelect,movies }: MoviGridPropse) {
             <img
               className={css.image}
               src={posterBaseUrl + movie.poster_path}
-              alt="movie title"
+              alt={movie.title}
               loading="lazy"
             />
                 <h2 className={css.title}>{movie.title}</h2>   {" "}
