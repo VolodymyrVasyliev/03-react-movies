@@ -61,7 +61,7 @@
 }
 
 /* =================ERROR===================== */
-.error {
+/* .error {
     position: absolute;
     top: -40px;
     left: 50%;
@@ -94,4 +94,4 @@
       opacity: 0;
       transform: translate(-50%, -10px);
     }
-  }
+  } */
