@@ -13,10 +13,9 @@ import { Toaster } from "react-hot-toast";
 
 export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [isLoading, setIsloading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedMovie, setSelectedMovie] = useState<Movie | null>();
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
 
 
@@ -25,7 +24,7 @@ export default function App() {
     try {
       setIsError(false);
       setMovies([]);
-      setIsloading(true)
+      setIsLoading(true);
       const newMovies = await fetchMovies(searchQuery);
 
       if (newMovies.length === 0) {
@@ -39,18 +38,16 @@ export default function App() {
     } catch {
       setIsError(true);
     } finally {
-      setIsloading(false)
+      setIsLoading(false);
     }
   };
 
   const handleSelectedMovie = (movie: Movie) => {
     setSelectedMovie(movie);
-    setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setSelectedMovie(null);
-    setIsModalOpen(false);
   };
 
 
@@ -65,7 +62,7 @@ export default function App() {
       {movies.length > 0 && (
         <MovieGrid onSelect={handleSelectedMovie} movies={movies} />
       )}
-      {isModalOpen && selectedMovie && (
+      { selectedMovie && (
         <MovieModal movie={selectedMovie} onClose={closeModal} />
       )}
     </div>
